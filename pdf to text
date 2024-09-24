@@ -1,0 +1,19 @@
+import pdfplumber
+api_key = "AIzaSyBf1yzhnXC8CnMw33ei4N8mIGfTczHXXF8"
+model_name = "gemini-flash-1.0"  # Updated to use Gemini Flash 1.0 model
+def extract_text_from_pdf(pdf_path):
+    text = ""
+    try:
+        with pdfplumber.open(pdf_path) as pdf:
+            for page in pdf.pages:
+                text += page.extract_text()
+    except Exception as e:
+        print(f"Error while extracting text from PDF: {e}")
+    return text
+if __name__ == "__main__":
+
+    pdf_path = "C:\Users\hemav\Downloads\Resume Building.pdf"
+    extracted_text = extract_text_from_pdf(pdf_path)
+
+    # Placeholder for further processing using the model and API key
+    # Further code using api_key and model_name would go here
